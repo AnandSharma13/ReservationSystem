@@ -1,22 +1,16 @@
-package AirlineReservation;
+package CsvHandler;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
+import java.io.*;
 
 public class CsvReader {
 
 
-    public ArrayList<ArrayList<String>> readFile(String path) throws IOException {
+    public void readFile(String path, CsvParsingService fileType) throws IOException {
         BufferedReader br = null;
         String line;
         String cvsSplitBy = ",";
 
-        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource("InputFiles/inputfile1.txt").getFile());
         try {
@@ -25,11 +19,7 @@ public class CsvReader {
             try {
                 while ((line = br.readLine()) != null) {
                     String[] data = line.split(cvsSplitBy);
-                    ArrayList<String> list = new ArrayList<String>();
-                    for (String e : data) {
-                        list.add(e);
-                    }
-                    result.add(list);
+                    fileType.parseCsv(data);
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -39,7 +29,6 @@ public class CsvReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return result;
     }
 
 
