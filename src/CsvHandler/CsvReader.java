@@ -2,17 +2,18 @@ package CsvHandler;
 
 import java.io.*;
 
+import static CsvHandler.Constants.INPUT_FILES_PATH;
+
+
 public class CsvReader {
 
 
-    public void readFile(String path, CsvParsingService fileType) throws IOException {
+    public void readFile(String fileName, CsvParsingService fileType) throws IOException {
         BufferedReader br = null;
         String line;
         String cvsSplitBy = ",";
-
-
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("InputFiles/inputfile1.txt").getFile());
+        File file = new File(classLoader.getResource(INPUT_FILES_PATH + "/" + fileName).getFile());
         try {
             FileReader fr = new FileReader(file);
             br = new BufferedReader(fr);
