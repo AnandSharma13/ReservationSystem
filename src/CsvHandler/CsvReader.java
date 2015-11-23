@@ -2,24 +2,28 @@ package CsvHandler;
 
 import java.io.*;
 
-import static CsvHandler.Constants.INPUT_FILES_PATH;
+import static CsvHandler.Constants.csvSplit;
 
 
 public class CsvReader {
 
-
+    /**
+     * Function to read a CSV file
+     * @param fileName
+     * @param fileType
+     * @throws IOException
+     */
     public void readFile(String fileName, CsvParsingService fileType) throws IOException {
         BufferedReader br = null;
         String line;
-        String cvsSplitBy = ",";
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(INPUT_FILES_PATH + "/" + fileName).getFile());
+       File file = new File(fileName);
+
         try {
             FileReader fr = new FileReader(file);
             br = new BufferedReader(fr);
             try {
                 while ((line = br.readLine()) != null) {
-                    String[] data = line.split(cvsSplitBy);
+                    String[] data = line.split(csvSplit);
                     fileType.parseCsv(data);
                 }
             } catch (FileNotFoundException e) {
@@ -31,6 +35,5 @@ public class CsvReader {
             e.printStackTrace();
         }
     }
-
 
 }

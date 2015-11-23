@@ -2,6 +2,8 @@ package FlightDetails;
 
 /**
  * Created by Anand on 10/31/2015.
+ *
+ * Class store the transactions of the system
  */
 public class AirlineTransactions {
 
@@ -11,15 +13,28 @@ public class AirlineTransactions {
     private String flightOrigin;
     private String flightDestination;
     private String flightNumber;
-    private int price;
+    private int newPrice;
 
 
-    public AirlineTransactions(String transactionType, String flightNumber, int price){
+    /**
+     * Constructs an object to modify the price of a flight
+     * @param transactionType
+     * @param flightNumber
+     * @param newPrice
+     */
+    public AirlineTransactions(String transactionType, String flightNumber, int newPrice){
         this.transactionType = transactionType;
         this.flightNumber =flightNumber;
-        this.price = price;
+        this.newPrice = newPrice;
     }
 
+    /**
+     * Constructs an object of a user transactions (BookPassenger, CancelPassenger)
+     * @param transactionType
+     * @param passengerName
+     * @param flightOrigin
+     * @param flightDestination
+     */
     public AirlineTransactions(String transactionType, String passengerName, String flightOrigin, String flightDestination){
         this.transactionType = transactionType;
         this.passengerName = passengerName;
@@ -41,40 +56,21 @@ public class AirlineTransactions {
         return flightOrigin;
     }
 
-    public void setFlightOrigin(String flightOrigin) {
-        this.flightOrigin = flightOrigin;
-    }
-
     public String getFlightDestination() {
         return flightDestination;
-    }
-
-    public void setFlightDestination(String flightDestination) {
-        this.flightDestination = flightDestination;
     }
 
     public String getTransactionType() {
         return transactionType;
     }
 
-    public void setTransactionType(String transactionType) {
-        this.transactionType = transactionType;
-    }
 
     public String getFlightNumber() {
         return flightNumber;
     }
 
-    public void setFlightNumber(String flightNumber) {
-        this.flightNumber = flightNumber;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    public int getNewPrice() {
+        return newPrice;
     }
 
 }

@@ -1,24 +1,27 @@
 package FlightDetails;
 
 import CsvHandler.CsvParsingService;
-
 import java.util.ArrayList;
-
 import static CsvHandler.Constants.FLIGHT_MODIFICATION_ROW_LENGTH;
 import static CsvHandler.Constants.PASSENGER_TRANSACTION_ROW_LENGTH;
 
 /**
  * Created by Anand on 10/31/2015.
+ *
+ * This class handles all transactions of the system.
  */
 public class TransactionHandler implements CsvParsingService {
 
 
     private ArrayList<AirlineTransactions> transactionsList;
-
     public TransactionHandler() {
         transactionsList = new ArrayList<>();
     }
 
+    /**
+     * Overridden method of the CsvParsingService interface. Contains the logic to parse the INPUT_FILE2
+     * @param csvLine
+     */
     @Override
     public void parseCsv(String[] csvLine) {
         if (csvLine.length == PASSENGER_TRANSACTION_ROW_LENGTH) {

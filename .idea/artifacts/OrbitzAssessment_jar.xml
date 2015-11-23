@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OrbitzAssessment:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OrbitzAssessment_jar</output-path>
+    <root id="archive" name="OrbitzAssessment.jar">
+      <element id="module-output" name="OrbitzAssessment" />
+    </root>
+  </artifact>
+</component>
